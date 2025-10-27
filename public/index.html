@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>To Do List</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="index.js" defer></script>
+    </head>
+    <body>
+        <h1>To Do List</h1>
+
+        <form class="addTask" action="" method="get">
+            <label for="task" class="addTask__label">Nouvelle tâche : </label>
+            <textarea id="task" name="task" class="addTask__textarea" placeholder="A faire !"></textarea>
+
+            <input type="submit" value="Ajouter" class="addTask__submit">
+        </form>
+
+        <section class="taskList">
+            <h2 class="taskList__title">Liste des tâches</h2>
+        </section>
+    </body>
+</html>
