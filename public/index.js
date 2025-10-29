@@ -1,3 +1,5 @@
+handleAddTaskForm();
+
 /**
  * Gestion de l'ajout d'une tâche via le champ de texte
  */
@@ -13,8 +15,6 @@ function handleAddTaskForm(){
         newTask(taskContent);
     })
 }
-
-handleAddTaskForm();
 
 /**
  * Création d'une nouvelle tâche dans la liste des tâches
