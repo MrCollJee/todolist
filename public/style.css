@@ -1,3 +1,11 @@
-
+.taskList {
+  width: 50%;
+}
+.taskList__task {
+  border: solid black 1px;
+}
+.taskList__task--done {
+  background-color: #66db82;
+}
 
 /*# sourceMappingURL=style.css.map */

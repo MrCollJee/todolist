@@ -1,0 +1,12 @@
+@use "../utils/variables" as *;
+//A MODIFIER LES NOMS DE CLASSE
+.taskList{
+    width: 50%;
+
+    &__task{
+        border: solid black 1px;
+        &--done{
+            background-color: $taskDone;
+        }
+    }
+}
