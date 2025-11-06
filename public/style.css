@@ -3,9 +3,23 @@
 }
 .taskList__task {
   border: solid black 1px;
+  user-select: none;
 }
 .taskList__task--done {
   background-color: #66db82;
+}
+.taskList__task:hover {
+  cursor: pointer;
+}
+.taskList__removeTaskButton {
+  height: 50%;
+  margin: auto;
+  margin-left: 10px;
+}
+
+.taskContainer {
+  display: flex;
+  flex-direction: row;
 }
 
 /*# sourceMappingURL=style.css.map */

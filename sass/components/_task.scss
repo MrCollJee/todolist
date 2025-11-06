@@ -1,12 +1,28 @@
 @use "../utils/variables" as *;
-//A MODIFIER LES NOMS DE CLASSE
+
 .taskList{
     width: 50%;
 
     &__task{
         border: solid black 1px;
+        user-select: none; //empêcher la sélection du texte au double clic sur une tâche
         &--done{
             background-color: $taskDone;
         }
+
+        &:hover{
+            cursor: pointer;
+        }
     }
+
+    &__removeTaskButton{
+        height: 50%;
+        margin: auto;
+        margin-left: 10px;
+    }
+}
+
+.taskContainer{
+    display: flex;
+    flex-direction: row;
 }
