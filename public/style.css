@@ -1,9 +1,52 @@
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+header .title {
+  text-align: center;
+  margin: 0;
+}
+header .themeButton {
+  position: fixed;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  background-color: rgb(243, 243, 243);
+}
+body .themeButton svg:last-child {
+  display: none;
+}
+
+.darkmode {
+  background-color: rgb(50, 50, 70);
+  color: white;
+}
+.darkmode .themeButton {
+  background-color: rgb(70, 77, 113);
+}
+.darkmode .themeButton svg:first-child {
+  display: none;
+}
+.darkmode .themeButton svg:last-child {
+  display: block;
+}
+
 .taskList {
   width: 50%;
 }
 .taskList__task {
   border: solid black 1px;
   user-select: none;
+  border-radius: 5%;
 }
 .taskList__task--done {
   background-color: #66db82;

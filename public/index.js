@@ -1,9 +1,15 @@
 import { showTasks, handleAddTaskForm } from "./src/functions.js";
 
 //Configuration du localStorage
-if(!window.localStorage.getItem("taskList")){
-    window.localStorage.setItem("taskList", JSON.stringify([]));
+if(!localStorage.getItem("taskList")){
+    localStorage.setItem("taskList", JSON.stringify([]));
 }
+if(!localStorage.getItem("theme")){
+    localStorage.setItem("theme", "lightmode");
+}
+
+showTasks();
+handleAddTaskForm();
 
 //Gestion du bouton tout supprimer
 let emptyTaskListButton = document.querySelector(".footer__emptyTaskListButton");
@@ -15,10 +21,24 @@ emptyTaskListButton.addEventListener("click", () =>{
         while (taskList.children.length > 1) {
             taskList.removeChild(taskList.lastChild);
         }
-        window.localStorage.setItem("taskList", JSON.stringify([]));
+        localStorage.setItem("taskList", JSON.stringify([]));
     }
 });
 
+//Gestion du thème
+const themeButton = document.querySelector(".themeButton");
+const theme = localStorage.getItem("theme");
+const body = document.querySelector("body");
 
-showTasks();
-handleAddTaskForm();
+if(theme === "darkmode"){
+    body.classList.add("darkmode");
+}
+
+themeButton.addEventListener("click", () => {
+    if(body.classList.toggle("darkmode")){
+        localStorage.setItem("theme", "darkmode");
+    }
+    else{
+        localStorage.setItem("theme", "lightmode");
+    }
+})

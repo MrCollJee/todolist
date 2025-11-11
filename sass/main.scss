@@ -1,2 +1,8 @@
-@import "components/task";
+//BASE
+@forward "base/index";
 
+//THEMES
+@forward "themes/index";
+
+//COMPOSANTS
+@forward "components/task";

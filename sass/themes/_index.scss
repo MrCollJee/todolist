@@ -1,0 +1,31 @@
+@use "../utils/variables" as *;
+@use "sass:map";
+
+body {
+    background-color: map-get($lightMode, "background-color");
+
+    .themeButton svg:last-child {
+        display: none;
+    }
+}
+
+.darkmode {
+    background-color: map-get($darkMode, "background-color");
+    color: map-get($darkMode, "text-color");
+
+    // button {
+    //     background-color: map-get($darkMode, "button-color");
+    // }
+
+    .themeButton {
+        background-color: map-get($darkMode, "themeButton-color");
+
+        svg:first-child{
+            display: none;
+        }
+        svg:last-child{
+            display: block;
+        }
+    }
+
+}

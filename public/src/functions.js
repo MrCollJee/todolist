@@ -5,7 +5,7 @@ const taskListDOM = document.querySelector(".taskList");
  * Affiche au chargement de la page les tâches stockées dans le local Storage
  */
 export function showTasks(){
-    const taskListStorage = JSON.parse(window.localStorage.getItem("taskList")); // Récupération de la liste des tâche dans le localStorage
+    const taskListStorage = JSON.parse(localStorage.getItem("taskList")); // Récupération de la liste des tâche dans le localStorage
     taskListStorage.forEach(task => {
         newTask(task.content, task.isDone, false);
     });
@@ -23,6 +23,7 @@ export function handleAddTaskForm(){
         const taskContent = textareaTask.value // Récupération de la tâche dans le champ de texte
 
         newTask(taskContent);
+        textareaTask.value = "";
     })
 }
 
@@ -55,24 +56,24 @@ function newTask(taskContent, isDone = false, toLocalStorage = true){
 
     // Ajout de l'événement de clic pour marquer la tâche comme terminée
     task.addEventListener("click", (event) => {
-        const taskListStorage = JSON.parse(window.localStorage.getItem("taskList")); //Récupération de taskList dans le local Storage
+        const taskListStorage = JSON.parse(localStorage.getItem("taskList")); //Récupération de taskList dans le local Storage
         const ArrayTaskList = Array.from(taskListDOM.children);// Convertir la collection HTMLCollection en Array pour utiliser indexOf
         const taskIndex = ArrayTaskList.indexOf(event.target.parentNode);// On récupère l'index du container dans la liste
         
         taskListStorage[taskIndex - 1].isDone = event.target.classList.toggle("taskList__task--done");
-        window.localStorage.setItem("taskList", JSON.stringify(taskListStorage));
+        localStorage.setItem("taskList", JSON.stringify(taskListStorage));
     })
 
     // Ajout de l'évènement de suppression
     taskRemover.addEventListener("click", (event) => {
         if(window.confirm("Etes-vous sûr de vouloir supprimer cette tâche ?")){
             //Suppression du localStorage
-            const taskListStorage = JSON.parse(window.localStorage.getItem("taskList")); //Récupération de taskList dans le local Storage
+            const taskListStorage = JSON.parse(localStorage.getItem("taskList")); //Récupération de taskList dans le local Storage
             const ArrayTaskList = Array.from(taskListDOM.children);// Convertir la collection HTMLCollection en Array pour utiliser indexOf
             const taskIndex = ArrayTaskList.indexOf(event.target.parentNode);// On récupère l'index du container dans la liste
             
             taskListStorage.splice(taskIndex - 1, 1); //taskIndex - 1 => Décalage entre TaskListDOM et Storage car ArrayTaskList contient le titre en plus
-            window.localStorage.setItem("taskList", JSON.stringify(taskListStorage)); 
+            localStorage.setItem("taskList", JSON.stringify(taskListStorage)); 
 
             taskListDOM.removeChild(event.target.parentNode); 
         }
@@ -84,10 +85,10 @@ function newTask(taskContent, isDone = false, toLocalStorage = true){
             'content': taskContent, 
             'isDone': isDone
         };
-        let taskListStorage = window.localStorage.getItem("taskList");
+        let taskListStorage = localStorage.getItem("taskList");
 
         taskListStorage = JSON.parse(taskListStorage);
         taskListStorage.push(newTask); 
-        window.localStorage.setItem("taskList", JSON.stringify(taskListStorage));
+        localStorage.setItem("taskList", JSON.stringify(taskListStorage));
     }
 }

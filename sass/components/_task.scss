@@ -6,6 +6,8 @@
     &__task{
         border: solid black 1px;
         user-select: none; //empêcher la sélection du texte au double clic sur une tâche
+        border-radius: 5%;
+    
         &--done{
             background-color: $taskDone;
         }
