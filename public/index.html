@@ -5,6 +5,10 @@
         <title>To Do List</title>
         <link rel="stylesheet" href="style.css">
         <script type="module" src="index.js" defer></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" 
+        rel="stylesheet">
     </head>
     <body>
         <header>
@@ -20,16 +24,17 @@
                 </svg>
             </button>
         </header>
-
+        
         <form class="addTask" action="" method="get">
-            <label for="task" class="addTask__label">Nouvelle tâche : </label>
-            <textarea id="task" name="task" class="addTask__textarea" placeholder="A faire !"></textarea>
+            <!-- <label for="task" class="addTask__label">Nouvelle tâche : </label> -->
+            <textarea id="task" name="task" class="addTask__textarea" placeholder="Ajouter une tâche !"
+            rows="8" cols="60" wrap="hard" required></textarea>
 
             <input type="submit" value="Ajouter" class="addTask__submit">
         </form>
 
         <section class="taskList">
-            <h2 class="taskList__title">Liste des tâches</h2>
+            <h2 class="taskList__title">Mes tâches</h2>
         </section>
 
         <footer>

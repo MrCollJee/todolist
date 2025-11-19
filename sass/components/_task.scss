@@ -3,10 +3,17 @@
 .taskList{
     width: 50%;
 
+    &__title{
+        position: relative;
+        left: 13%;
+    }
+
     &__task{
-        border: solid black 1px;
         user-select: none; //empêcher la sélection du texte au double clic sur une tâche
-        border-radius: 5%;
+        border-radius: 30px;
+        width: 300px;
+        padding: 10px;
+        background-color: $primaryTaskColor;
     
         &--done{
             background-color: $taskDone;
@@ -21,6 +28,10 @@
         height: 50%;
         margin: auto;
         margin-left: 10px;
+
+        &:hover{
+            cursor: pointer;
+        }
     }
 }
 

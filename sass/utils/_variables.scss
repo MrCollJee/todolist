@@ -1,15 +1,18 @@
 //THEMES
 $darkMode: (
-    "background-color": rgb(50, 50, 70), 
+    "background-color": #1a1a2c, 
     "text-color": white,
     "button-color": black,
-    "themeButton-color": rgb(70, 77, 113),
+    "themeButton-color": #3c415e,
+    "task-color": #677182,
+    "taskDone-color": #438e43,
     );
 
 $lightMode : (
-    "background-color": rgb(243, 243, 243),
+    "background-color": #f3f3f3,
     "text-color": black,
     );
 
 //TÂCHE
+$primaryTaskColor: #c6dce2;
 $taskDone: #66db82;

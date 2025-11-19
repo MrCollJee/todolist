@@ -35,10 +35,19 @@ if(theme === "darkmode"){
 }
 
 themeButton.addEventListener("click", () => {
+    let deleteIcons = document.querySelectorAll(".taskList__removeTaskButton");
+    
     if(body.classList.toggle("darkmode")){
         localStorage.setItem("theme", "darkmode");
+        //On met l'icône claire de suppression
+        deleteIcons.forEach(icon => {
+            icon.setAttribute("src", "./img/delete-icon--darkmode.png");
+        });
     }
     else{
         localStorage.setItem("theme", "lightmode");
+        deleteIcons.forEach(icon => {
+            icon.setAttribute("src", "./img/delete-icon.png");
+        });
     }
 })

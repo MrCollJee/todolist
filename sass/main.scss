@@ -4,5 +4,9 @@
 //THEMES
 @forward "themes/index";
 
+//LAYOUTS
+@forward "layouts/header";
+@forward "layouts/addTaskForm";
+
 //COMPOSANTS
 @forward "components/task";

@@ -28,4 +28,11 @@ body {
         }
     }
 
+    .taskList__task{
+        background-color: map-get($darkMode, "task-color");
+
+        &--done{
+            background-color: map-get($darkMode, "taskDone-color");
+        }
+    }
 }
