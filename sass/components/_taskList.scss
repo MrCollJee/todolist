@@ -3,10 +3,18 @@
 
 .taskList{
     width: 50%;
+    margin-left: 100px;
 
     &__title, &__emptyAllButton{
         position: relative;
         left: 13%;
+    }
+
+    &__taskDate{
+        width: 100%;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        opacity: 0.5;
     }
 
     &__task{
@@ -39,10 +47,13 @@
         left: 15%;
         border-radius: 30px;
         background-color: map.get($lightMode, "emptyAllButton-color");
+        margin-top: 10px;
     }
 }
 
 .taskContainer{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    border-bottom: solid 1px #464646;
 }

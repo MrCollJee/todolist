@@ -86,10 +86,17 @@ header .themeButton {
 
 .taskList {
   width: 50%;
+  margin-left: 100px;
 }
 .taskList__title, .taskList__emptyAllButton {
   position: relative;
   left: 13%;
+}
+.taskList__taskDate {
+  width: 100%;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  opacity: 0.5;
 }
 .taskList__task {
   user-select: none;
@@ -116,11 +123,14 @@ header .themeButton {
   left: 15%;
   border-radius: 30px;
   background-color: #ff5757;
+  margin-top: 10px;
 }
 
 .taskContainer {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  border-bottom: solid 1px #464646;
 }
 
 /*# sourceMappingURL=style.css.map */
