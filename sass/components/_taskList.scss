@@ -1,9 +1,10 @@
 @use "../utils/variables" as *;
+@use "sass:map";
 
 .taskList{
     width: 50%;
 
-    &__title{
+    &__title, &__emptyAllButton{
         position: relative;
         left: 13%;
     }
@@ -32,6 +33,12 @@
         &:hover{
             cursor: pointer;
         }
+    }
+
+    &__emptyAllButton{
+        left: 15%;
+        border-radius: 30px;
+        background-color: map.get($lightMode, "emptyAllButton-color");
     }
 }
 

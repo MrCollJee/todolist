@@ -2,7 +2,7 @@
 @use "sass:map";
 
 body {
-    background-color: map-get($lightMode, "background-color");
+    background-color: map.get($lightMode, "background-color");
 
     .themeButton svg:last-child {
         display: none;
@@ -10,15 +10,11 @@ body {
 }
 
 .darkmode {
-    background-color: map-get($darkMode, "background-color");
-    color: map-get($darkMode, "text-color");
-
-    // button {
-    //     background-color: map-get($darkMode, "button-color");
-    // }
+    background-color: map.get($darkMode, "background-color");
+    color: map.get($darkMode, "text-color");
 
     .themeButton {
-        background-color: map-get($darkMode, "themeButton-color");
+        background-color: map.get($darkMode, "themeButton-color");
 
         svg:first-child{
             display: none;
@@ -28,11 +24,21 @@ body {
         }
     }
 
-    .taskList__task{
-        background-color: map-get($darkMode, "task-color");
-
-        &--done{
-            background-color: map-get($darkMode, "taskDone-color");
+    .taskList{
+        &__task{
+            background-color: map.get($darkMode, "task-color");
+        
+            &--done {
+                background-color: map.get($darkMode, "taskDone-color");
+            }
         }
+
+        &__emptyAllButton{
+            background-color: map.get($darkMode, "emptyAllButton-color");
+        }
+    }
+
+    .addTask__submit{
+        background-color: map.get($darkMode, "addTaskButton-color");
     }
 }

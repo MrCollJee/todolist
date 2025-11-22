@@ -1,5 +1,10 @@
 body {
   font-family: "Montserrat", sans-serif;
+  cursor: default;
+}
+
+button:hover, input[type=submit]:hover {
+  cursor: pointer;
 }
 
 body {
@@ -27,6 +32,12 @@ body .themeButton svg:last-child {
 }
 .darkmode .taskList__task--done {
   background-color: #438e43;
+}
+.darkmode .taskList__emptyAllButton {
+  background-color: #922626;
+}
+.darkmode .addTask__submit {
+  background-color: #2a576b;
 }
 
 header {
@@ -64,13 +75,19 @@ header .themeButton {
   resize: none;
 }
 .addTask__submit {
-  width: 60px;
+  width: 100px;
+  height: 30px;
+  border-radius: 30px;
+  background-color: #84adea;
+}
+.addTask__submit:hover {
+  cursor: pointer;
 }
 
 .taskList {
   width: 50%;
 }
-.taskList__title {
+.taskList__title, .taskList__emptyAllButton {
   position: relative;
   left: 13%;
 }
@@ -94,6 +111,11 @@ header .themeButton {
 }
 .taskList__removeTaskButton:hover {
   cursor: pointer;
+}
+.taskList__emptyAllButton {
+  left: 15%;
+  border-radius: 30px;
+  background-color: #ff5757;
 }
 
 .taskContainer {

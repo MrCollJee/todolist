@@ -108,6 +108,16 @@ function newTask(taskContent, darkmode = false, isDone = false, toLocalStorage =
         // }
     })
 
+    //Changement de couleur de l'îcone au survol du curseur
+    deleteIcon.addEventListener("mouseover", (event) => {
+        const iconSrc = event.target.getAttribute("src");
+        event.target.setAttribute("src", "./img/delete-icon--hover.png");
+
+        event.target.addEventListener("mouseout", (e) => {
+            e.target.setAttribute("src", iconSrc);
+        })
+    })
+
     //Ajout conditionnel de la tâche dans le localStorage
     if(toLocalStorage){
         const newTask = {

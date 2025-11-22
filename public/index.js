@@ -12,17 +12,22 @@ showTasks();
 handleAddTaskForm();
 
 //Gestion du bouton tout supprimer
-let emptyTaskListButton = document.querySelector(".footer__emptyTaskListButton");
+let emptyTaskListButton = document.querySelector(".taskList__emptyAllButton");
 emptyTaskListButton.addEventListener("click", () =>{
     let taskList = document.querySelector(".taskList");
 
-    if(window.confirm("Êtes-vous sûr de vouloir supprimer toutes les tâches ?")) {
-        // Supprime tous les enfants sauf le premier (le titre)
-        while (taskList.children.length > 1) {
-            taskList.removeChild(taskList.lastChild);
-        }
-        localStorage.setItem("taskList", JSON.stringify([]));
-    }
+    if (!taskList) return;
+
+    if (!window.confirm("Êtes-vous sûr de vouloir supprimer toutes les tâches ?")) return;
+
+    // Récupère une copie des enfants et supprime tous sauf le premier (titre) et le dernier (bouton)
+    const children = Array.from(taskList.children);
+    const toRemove = children.slice(1, -1); // vide si <= 2 enfants
+
+    toRemove.forEach(child => taskList.removeChild(child));
+
+    // Met à jour le localStorage
+    localStorage.setItem("taskList", JSON.stringify([]));
 });
 
 //Gestion du thème
