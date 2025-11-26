@@ -38,7 +38,22 @@ body {
         }
     }
 
-    .addTask__submit{
-        background-color: map.get($darkMode, "addTaskButton-color");
+    .addTask{
+        &__submit{
+            background-color: map.get($darkMode, "addTaskButton-color");
+            color: darken(map.get($darkMode, "text-color"), 30%);
+        }
+
+        &__textarea{
+            background-color: map.get($darkMode, "textareaAdd-color");
+            color: map.get($darkMode, "text-color");
+
+            &::placeholder{
+                color: map.get($darkMode, "text-color");
+                opacity: 0.7;
+            }
+        }
     }
+
+
 }
