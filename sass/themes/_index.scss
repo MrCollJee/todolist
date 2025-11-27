@@ -35,6 +35,7 @@ body {
 
         &__emptyAllButton{
             background-color: map.get($darkMode, "emptyAllButton-color");
+            color: darken(map.get($darkMode, "text-color"), 15%);
         }
     }
 
