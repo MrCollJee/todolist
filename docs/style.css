@@ -35,6 +35,7 @@ body .themeButton svg:last-child {
 }
 .darkmode .taskList__emptyAllButton {
   background-color: #922626;
+  color: rgb(216.75, 216.75, 216.75);
 }
 .darkmode .addTask__submit {
   background-color: #2a576b;
