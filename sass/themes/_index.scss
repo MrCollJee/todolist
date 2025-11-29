@@ -1,5 +1,6 @@
 @use "../utils/variables" as *;
 @use "sass:map";
+@use "sass:color";
 
 body {
     background-color: map.get($lightMode, "background-color");
@@ -35,14 +36,14 @@ body {
 
         &__emptyAllButton{
             background-color: map.get($darkMode, "emptyAllButton-color");
-            color: darken(map.get($darkMode, "text-color"), 15%);
+            color: color.scale(map.get($darkMode, "text-color"), $lightness: -15%);
         }
     }
 
     .addTask{
         &__submit{
             background-color: map.get($darkMode, "addTaskButton-color");
-            color: darken(map.get($darkMode, "text-color"), 30%);
+            color: color.scale(map.get($darkMode, "text-color"), $lightness: -30%);
         }
 
         &__textarea{
