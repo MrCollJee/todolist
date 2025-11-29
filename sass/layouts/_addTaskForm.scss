@@ -1,4 +1,5 @@
 @use "../utils/variables" as *;
+@use "../utils/mixins" as *;
 @use "sass:map";
 
 .addTask{
@@ -12,6 +13,11 @@
 
     &__textarea{
         resize: none;
+        
+        @include media-max("tablet-up"){
+            width: 80%;
+            font-size: 20px;
+        }
     }
 
     &__submit{

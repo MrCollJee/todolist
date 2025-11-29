@@ -1,6 +1,13 @@
 body {
   font-family: "Montserrat", sans-serif;
+  background: fixed repeat;
   cursor: default;
+}
+@media screen and (max-width: 768px) {
+  body {
+    width: 85%;
+    margin: auto;
+  }
 }
 
 button:hover, input[type=submit]:hover {
@@ -56,6 +63,25 @@ header {
   align-items: center;
   width: 100%;
 }
+@media screen and (max-width: 768px) {
+  header {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 64px;
+  }
+  header .title {
+    width: 100%;
+    text-align: center;
+    position: static;
+    margin-top: 8px;
+  }
+  header .themeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+}
 header .title {
   text-align: center;
   margin: 0;
@@ -84,6 +110,12 @@ header .themeButton {
 .addTask__textarea {
   resize: none;
 }
+@media screen and (max-width: 768px) {
+  .addTask__textarea {
+    width: 80%;
+    font-size: 20px;
+  }
+}
 .addTask__submit {
   width: 100px;
   height: 30px;
@@ -95,12 +127,13 @@ header .themeButton {
 }
 
 .taskList {
-  width: 50%;
-  margin-left: 100px;
+  width: 80%;
+  margin: auto;
+  display: grid;
 }
-.taskList__title, .taskList__emptyAllButton {
+.taskList__title {
   position: relative;
-  left: 13%;
+  left: 10%;
 }
 .taskList__taskDate {
   width: 100%;
@@ -122,7 +155,8 @@ header .themeButton {
   cursor: pointer;
 }
 .taskList__removeTaskButton {
-  height: 50%;
+  height: 24px;
+  width: 24px;
   margin: auto;
   margin-left: 10px;
 }
@@ -130,10 +164,42 @@ header .themeButton {
   cursor: pointer;
 }
 .taskList__emptyAllButton {
-  left: 15%;
+  position: relative;
+  width: 120px;
+  justify-self: center;
   border-radius: 30px;
   background-color: #ff5757;
   margin-top: 10px;
+  margin-bottom: 5px;
+  color: black;
+}
+@media screen and (max-width: 768px) {
+  .taskList {
+    justify-content: center;
+  }
+  .taskList__title, .taskList__emptyAllButton {
+    justify-self: auto;
+  }
+  .taskList__task {
+    width: 250px;
+  }
+  .taskList__removeTaskButton {
+    justify-self: center;
+  }
+}
+@media screen and (max-width: 350px) {
+  .taskList__task {
+    width: 150px;
+  }
+  .taskList__taskDate {
+    text-align: center;
+  }
+  .taskList__emptyAllButton {
+    left: 20%;
+  }
+  .taskList__removeTaskButton {
+    margin-left: auto;
+  }
 }
 
 .taskContainer {
@@ -141,6 +207,23 @@ header .themeButton {
   flex-direction: row;
   flex-wrap: wrap;
   border-bottom: solid 1px #464646;
+}
+.taskContainer__divTaskIcon {
+  display: flex;
+  flex-flow: row nowrap;
+}
+@media screen and (max-width: 768px) {
+  .taskContainer {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 350px) {
+  .taskContainer__divTaskIcon {
+    flex-flow: column nowrap;
+    align-items: center;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

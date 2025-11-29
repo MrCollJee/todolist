@@ -63,16 +63,19 @@ export function handleAddTaskForm(){
  * @param {boolean} toLocalStorage : Indique si l'on stocke la tâche dans le local Storage (par défaut oui)
  */
 function newTask(task, darkmode = false, toLocalStorage = true){
-    //Ajout de la tâche dans le DOM
+    //Création des éléments du DOM pour l'ajout de la tâche
     let taskContainer = document.createElement("div")
     let taskDOM = document.createElement("p");
     let taskDate = document.createElement("p");
+    let divTaskIcon = document.createElement("div"); // Div qui va contenir la tâche et l'icône supprimer pour la flexbox
     let deleteIcon = document.createElement("img");
     let deleteIconSrc = "./img/delete-icon.png";
 
     const taskListTitle = document.querySelector(".taskList__title");
 
+    //Configuration des éléments (ajouts classe & contenu)
     taskContainer.classList.add("taskContainer");
+    divTaskIcon.classList.add("taskContainer__divTaskIcon");
 
     taskDate.textContent = formatDate(new Date(task.addedAt));
     taskDate.classList.add('taskList__taskDate');
@@ -90,9 +93,11 @@ function newTask(task, darkmode = false, toLocalStorage = true){
     }
     deleteIcon.setAttribute("src", deleteIconSrc);
 
+    //Insertion des éléments crées dans le DOM
+    divTaskIcon.appendChild(taskDOM);
+    divTaskIcon.appendChild(deleteIcon);
     taskContainer.appendChild(taskDate);
-    taskContainer.appendChild(taskDOM);
-    taskContainer.appendChild(deleteIcon);
+    taskContainer.appendChild(divTaskIcon);
     insertAfter(taskListTitle, taskContainer);
 
     handleDeleteIcon(deleteIcon);
