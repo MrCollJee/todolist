@@ -1,6 +1,16 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+@use "sass:map";
+
 body{
     font-family: "Montserrat", sans-serif;
+    background: fixed repeat;
     cursor: default;
+
+    @include media-max("tablet-up"){
+        width: 85%;
+        margin: auto;
+    }
 }
 
 button:hover, input[type="submit"]:hover{

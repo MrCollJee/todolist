@@ -1,13 +1,15 @@
 @use "../utils/variables" as *;
+@use "../utils/mixins" as *;
 @use "sass:map";
 
 .taskList{
-    width: 50%;
-    margin-left: 100px;
+    width: 80%;
+    margin: auto;
+    display: grid;
 
-    &__title, &__emptyAllButton{
+    &__title{
         position: relative;
-        left: 13%;
+        left: 10%;
     }
 
     &__taskDate{
@@ -23,7 +25,7 @@
         width: 300px;
         padding: 10px;
         background-color: $primaryTaskColor;
-    
+
         &--done{
             background-color: $taskDone;
         }
@@ -34,7 +36,8 @@
     }
 
     &__removeTaskButton{
-        height: 50%;
+        height: 24px;
+        width: 24px;
         margin: auto;
         margin-left: 10px;
 
@@ -44,10 +47,50 @@
     }
 
     &__emptyAllButton{
-        left: 15%;
+        position: relative;
+        width: 120px;
+        justify-self: center;
         border-radius: 30px;
         background-color: map.get($lightMode, "emptyAllButton-color");
         margin-top: 10px;
+        margin-bottom: 5px;
+        color: black;
+    }
+
+    //RESPONSIVE SUR PETITS ECRANS
+    @include media-max("tablet-up") {
+        justify-content: center;
+
+        &__title,
+        &__emptyAllButton {
+            justify-self: auto;
+        }
+
+        &__task {
+            width: 250px;
+        }
+
+        &__removeTaskButton {
+            justify-self: center;
+        }
+    }
+
+    @include media-max("phone-up"){
+        &__task{
+            width: 150px;
+        }
+
+        &__taskDate{
+            text-align: center;
+        }
+
+        &__emptyAllButton{
+            left: 20%;
+        }
+
+        &__removeTaskButton{
+            margin-left: auto;
+        }
     }
 }
 
@@ -56,4 +99,22 @@
     flex-direction: row;
     flex-wrap: wrap;
     border-bottom: solid 1px #464646;
+
+    &__divTaskIcon{
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    @include media-max("tablet-up"){
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    @include media-max("phone-up") {
+        &__divTaskIcon{
+            flex-flow: column nowrap;
+            align-items: center;
+        }
+    }
 }
