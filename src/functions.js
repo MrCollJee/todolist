@@ -127,14 +127,15 @@ function handleDeleteIcon(deleteIcon){
     deleteIcon.addEventListener("click", (event) => {
         // if(window.confirm("Etes-vous sûr de vouloir supprimer cette tâche ?")){
             //Suppression du localStorage
+            const currentTaskContainer = event.target.parentNode.parentNode; //Il y a 2 fois parentNode car on se situe dans la divTaskIcon
             const taskListStorage = JSON.parse(localStorage.getItem("taskList")); //Récupération de taskList dans le local Storage
             const ArrayTaskList = Array.from(taskListDOM.children);// Convertir la collection HTMLCollection en Array pour utiliser indexOf
-            const taskIndex = ArrayTaskList.indexOf(event.target.parentNode);// On récupère l'index du container dans la liste
+            const taskIndex = ArrayTaskList.indexOf(currentTaskContainer);// On récupère l'index du container dans la liste
             
             taskListStorage.splice(taskIndex - 1, 1); //taskIndex - 1 => Décalage entre TaskListDOM et Storage car ArrayTaskList contient le titre en plus
             localStorage.setItem("taskList", JSON.stringify(taskListStorage)); 
 
-            taskListDOM.removeChild(event.target.parentNode); 
+            taskListDOM.removeChild(currentTaskContainer); 
         // }
     })
 
@@ -156,9 +157,10 @@ function handleDeleteIcon(deleteIcon){
 function handleTaskDone(task){
     // Ajout de l'événement de clic pour marquer la tâche comme terminée
     task.addEventListener("click", (event) => {
+        const currentTaskContainer = event.target.parentNode.parentNode; //Il y a 2 fois parentNode car on se situe dans la divTaskIcon
         const taskListStorage = JSON.parse(localStorage.getItem("taskList")); //Récupération de taskList dans le local Storage
         const ArrayTaskList = Array.from(taskListDOM.children);// Convertir la collection HTMLCollection en Array pour utiliser indexOf
-        const taskIndex = ArrayTaskList.indexOf(event.target.parentNode);// On récupère l'index du container dans la liste
+        const taskIndex = ArrayTaskList.indexOf(currentTaskContainer);// On récupère l'index du container dans la liste
         
         taskListStorage[taskIndex - 1].isDone = event.target.classList.toggle("taskList__task--done");
         localStorage.setItem("taskList", JSON.stringify(taskListStorage));
